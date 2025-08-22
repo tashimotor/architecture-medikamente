@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+
+title DFD: Финансовый учет
+
+actor Patient
+actor Bookkeeper
+actor Cassier
+
+rectangle "Касса (наличные/терминал)" as Cash
+rectangle "1С (финансовый учет)" as OneC
+rectangle "Excel (отчеты)" as Excel
+
+Patient -> Cassier : оплата за прием
+Cassier -> Cash : оплата наличными/терминалом
+Cassier -> OneC : передача данных о приеме
+Bookkeeper -> Excel : формирование отчетов
+Bookkeeper -> OneC : Рассчет и выплата зарплаты
+@enduml
