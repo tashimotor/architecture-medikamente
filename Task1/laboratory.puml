@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+
+title DFD: Лабораторные исследования
+
+actor Doctor
+actor Laboratory
+actor Patient
+actor Administrator
+
+rectangle "Журнал записи в лабораторию" as LaboratoryJournalDB
+rectangle "Результаты анализов" as LaboratoryResultDB
+
+Patient -> Administrator : Запись на анализы
+Administrator -> LaboratoryJournalDB : Сохранение записи
+Laboratory -> LaboratoryJournalDB : Просмотр записей и прием пациентов
+Laboratory -> LaboratoryResultDB : Сохранение результатов анализов
+Doctor -> LaboratoryResultDB : Просмотр результатов анализов
+
+@enduml
